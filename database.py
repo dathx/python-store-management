@@ -2,8 +2,7 @@ import pyodbc
 
 
 class Database:
-    def __init__(self, drive='SQL Server', server='localhost', database='duan1_final', username='sa',
-                 password='P@ssword123456'):
+    def __init__(self, drive='SQL Server', server='localhost', database='', username='', password=''):
         self.drive = drive
         self.server = server
         self.database = database
