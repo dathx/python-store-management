@@ -1,5 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
+
+import admin
+import staff
 from database import Database
 
 # creating a database object
@@ -27,13 +30,12 @@ class Login:
             self.loginFrame.destroy()
             self.rightFrame.destroy()
             if nhan_vien[0][5]:
-                print("User")
+                staff.StaffControls(self.root)
                 # Employee screen
             else:
-                print("Admin")
+                admin.AdminControls(self.root)
                 # Admin screen
 
-        #
         else:
             messagebox.showerror("Lỗi!", "Vui lòng kiểm tra lại tài khoản của bạn!")
             self.username.set("")
@@ -44,7 +46,7 @@ class Login:
         # Login Frame Configurations
         self.loginFrame = Frame(self.root, bg="white")
         self.loginFrame.pack(side=LEFT, fill=X, padx=60)
-        self.login_frame_title = Label(self.loginFrame, text="Login Here", font=("Impact", 35), bg="white",
+        self.login_frame_title = Label(self.loginFrame, text="Đăng nhập", font=("Impact", 35), bg="white",
                                        fg="#5856a0")
         self.login_frame_title.grid(row=0, columnspan=2, padx=10, pady=20, sticky="w")
 
