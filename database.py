@@ -3,7 +3,7 @@ import pyodbc
 
 class Database:
     #  input your database name, user/pass here
-    def __init__(self, drive='SQL Server', server='localhost', database='', username='', password=''):
+    def __init__(self, drive='SQL Server', server='localhost', database='duan1_final', username='sa', password='P@ssword123456'):
         self.drive = drive
         self.server = server
         self.database = database
@@ -25,5 +25,9 @@ class Database:
         sql_select_query = "SELECT * FROM NHANVIEN WHERE MANV=? AND MATKHAU=?"
         self.cur.execute(sql_select_query, (username, password))
         result = self.cur.fetchall()
-        print(result)
         return result
+
+    def viewProducts(self):
+        self.cur.execute("SELECT * FROM SANPHAM")
+        rows = self.cur.fetchall()
+        return rows
